@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  web:
+    build: .
+    container_name: keepr_web
+    restart: always
+    ports:
+      - "${KEEPR_PORT}:3000"
+    environment:
+      - MAX_BYTES=${MAX_BYTES}
+      - UPLOAD_PATH=${UPLOAD_PATH}
+      - KEEPR_HOST=${KEEPR_HOST}
+    volumes:
+      - ${UPLOAD_PATH}:/srv/upload/
+    command: npm start
