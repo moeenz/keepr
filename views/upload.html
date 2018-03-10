@@ -1,0 +1,50 @@
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <title>keepr</title>
+    </head>
+    <body>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <h1 class="title">
+                            keepr
+                        </h1>
+                        <h2 class="subtitle">
+                            useless uploading panel.
+                        </h2>
+                    </div>
+                </div>
+            </section>
+            <div class="columns level">
+                <div class="column is-half is-offset-one-quarter">
+                    <section class="box section">
+                        <h2 class="title">Upload</h2>
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <div class="field">
+                                <label class="label" for="file">Select file</label>
+                                <input class="input" id="file" name="file" type="file" />
+                            </div>
+                            <div class="field">
+                                <button class="button is-danger" id="submit" type="submit">Whoosh</button>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="box section">
+                        <h2 class="title">Listing</h2>
+                        <ul>
+                            {{#each listing}}
+                                <li>
+                                    <a href="/get/{{name}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
